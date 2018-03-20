@@ -12,6 +12,7 @@ logincred: [],
         case LOGIN:
         return{
             ...prevstate
+
         }
         case LOGIN_SUCCESS:
         return{

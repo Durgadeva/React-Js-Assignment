@@ -4,19 +4,19 @@ import {
     LOGIN_FAILURE
 } from "../actionTypes/adminlogin";
 
-export function login(data)
+export function login(loginUser)
 {
     return{
         type: LOGIN,
-        data
+        loginUser
     }
 }
 
-export function loginsuccess(success)
+export function loginsuccess(url)
 {
     return{
         type: LOGIN_SUCCESS,
-        success
+        url
     }
 }
 

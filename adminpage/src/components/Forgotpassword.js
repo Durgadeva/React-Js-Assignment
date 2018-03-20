@@ -13,7 +13,7 @@ class Forgotpassword extends Component{
                 
                 <hr></hr>
                 <div>
-                    <label for = "uname"><b>Enter your account mail id</b></label>
+                    <label><b>Enter your account mail id</b></label>
                  
                    <input type = "text" placeholder = "Enter your account mail id" name = "email" required />
              <button type = "submit">Reset Password</button>  

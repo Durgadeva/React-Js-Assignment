@@ -4,8 +4,22 @@ import Forgotpassword from "../components/Forgotpassword";
 import Adlogin from "./Adlogin";
 import {Link} from 'react-router-dom';
 
-class Adminlogin extends Component
-{
+class Adminlogin extends Component{
+constructor(props){
+    super(props)
+    this.state = {
+        loginUser: {}
+    };
+}
+
+    onChangeHandler=(event) =>{
+        const loginUser = this.state.loginUser;
+        const name = event.target.name;
+        const value = event.target.value;
+        loginUser[name] = value;
+        this.setState({ loginUser })
+        console.log(loginUser)
+    }
     render()
     {
     //     this.state={ uname,  psw};
@@ -16,20 +30,20 @@ class Adminlogin extends Component
             <h1>Administrator area</h1>            
             <hr></hr>
             <div>
-            <label for = "uname"><b>Username</b></label> 
+            <label><b>Username</b></label> 
             </div>
             <div>      
-            <input type = "text" placeholder = "Enter Username" name = "uname" required />
+            <input type = "text" placeholder = "Enter Username" name = "username" onChange = {this.onChangeHandler}  />
             </div>
             <div>  
-            <label for = "psw"><b>Password</b></label>
+            <label><b>Password</b></label>
             </div>
             <div>
-            <input type = "password" placeholder = "Enterpassword"  name = "psw" required />
+            <input type = "password" placeholder = "Enterpassword"  name = "password" onChange = {this.onChangeHandler} />
             </div>
             <div>
            
-            <button type = "submit" onClick={this.props.handleChange}>LOGIN</button>
+            <Link to="/"><button  onClick={()=>this.props.handleAdminLogin(this.state.loginUser)}>LOGIN</button></Link>
             </div>
             <span className = "psw"><Link to = "/Forgotpassword">Forgot Password?</Link></span>
             

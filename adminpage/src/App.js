@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Adminlogin from "./components/Adminlogin";
 import Forgotpassword from "./components/Forgotpassword";
 import { bindActionCreators } from "redux";
-import * as productActions from "./actionCreators/adminlogin";
+import * as adminActions from "./actionCreators/adminlogin";
 import './App.css';
 import Adlogin from './components/Adlogin';
 import { Route, Switch} from "react-router-dom";
@@ -10,21 +10,10 @@ import {withRouter} from 'react-router';
 import { connect } from "react-redux";
 
 class App extends Component {
-  componentWillMount()
-  {
-    console.log("Admin");
-  }
-   
-  handleChange = (e) =>
-  {
- 
-   if(this.props.user === "admin" && this.props.val === 123)
-   {
-     console.log("successful");
-   }
-  }
-    
   
+  handleAdminLogin=(loginUser)=>{
+    this.props.actions.login(loginUser);
+  }
   render() 
   {
     return (      
@@ -34,7 +23,8 @@ class App extends Component {
                     path= "/"
                     render = {props => 
                              <Adminlogin
-                             handleChange = {this.handleChange()}
+                             handleAdminLogin={this.handleAdminLogin}
+                             
                             
                               />} />                 
              <Route path = "/Forgotpassword" 
@@ -59,7 +49,7 @@ class App extends Component {
 function mapStateToProps(state)
 {
   return{
-   data: state.data,
+  
    
   }
 }
@@ -67,7 +57,7 @@ function mapStateToProps(state)
 function mapDispatchToProps(dispatch)
 {
   return{
-    actions: bindActionCreators(productActions, dispatch)
+    actions: bindActionCreators(adminActions, dispatch)
   }
 }
  export default connect(mapStateToProps, mapDispatchToProps)(App);;
