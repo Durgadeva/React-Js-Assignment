@@ -9,13 +9,11 @@ class Forgotpassword extends Component{
                
             <form >
                 <div className = "container">
-                <h1>Forgot Password</h1>
-                
+                <h1>Forgot Password</h1>                
                 <hr></hr>
                 <div>
-                    <label><b>Enter your account mail id</b></label>
-                 
-                   <input type = "text" placeholder = "Enter your account mail id" name = "email" required />
+              <label><b>Enter your account mail id</b></label>                 
+             <input type = "text" placeholder = "Enter your account mail id" name = "email" required />
              <button type = "submit">Reset Password</button>  
              <span className="psw"><Link to = "/Adminlogin">Back to login</Link></span>
             </div>

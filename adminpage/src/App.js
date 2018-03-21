@@ -4,7 +4,6 @@ import Forgotpassword from "./components/Forgotpassword";
 import { bindActionCreators } from "redux";
 import * as adminActions from "./actionCreators/adminlogin";
 import './App.css';
-import Adlogin from './components/Adlogin';
 import { Route, Switch} from "react-router-dom";
 import {withRouter} from 'react-router';
 import { connect } from "react-redux";
@@ -13,6 +12,7 @@ class App extends Component {
   
   handleAdminLogin=(loginUser)=>{
     this.props.actions.login(loginUser);
+
   }
   render() 
   {
@@ -49,7 +49,7 @@ class App extends Component {
 function mapStateToProps(state)
 {
   return{
-  
+   data : state.data
    
   }
 }
@@ -60,4 +60,4 @@ function mapDispatchToProps(dispatch)
     actions: bindActionCreators(adminActions, dispatch)
   }
 }
- export default connect(mapStateToProps, mapDispatchToProps)(App);;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

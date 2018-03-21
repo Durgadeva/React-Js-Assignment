@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Style.css';
 import Forgotpassword from "../components/Forgotpassword";
-import Adlogin from "./Adlogin";
 import {Link} from 'react-router-dom';
 
 class Adminlogin extends Component{
@@ -19,11 +18,13 @@ constructor(props){
         loginUser[name] = value;
         this.setState({ loginUser })
         console.log(loginUser)
+        
+
+
     }
     render()
     {
-    //     this.state={ uname,  psw};
-    //    const {data, success, error} = this.props;
+    
         return(
             <form >
             <div className = "container" >

@@ -8,7 +8,7 @@ export function login(loginUser)
 {
     return{
         type: LOGIN,
-        loginUser
+        loginUser   
     }
 }
 

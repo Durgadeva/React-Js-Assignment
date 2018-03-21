@@ -1,29 +1,25 @@
 import {
     LOGIN,
     LOGIN_SUCCESS,
-    LOGIN_FAILURE
+    LOGIN_FAILURE,
+    
 } from "../actionTypes/adminlogin";
 
 export default (prevstate = {
-logincred: [],
+logincredentials: [],
 
 }, action) => {
     switch (action.type){
         case LOGIN:
         return{
-            ...prevstate
-
+            ...prevstate,
+           
         }
         case LOGIN_SUCCESS:
         return{
             ...prevstate,
-            success: {...prevstate, ...action.logincred}
-        }
-        case LOGIN_FAILURE:
-        return{
-            ...prevstate,
-            failure: {...prevstate}
-        }
+            logincredentials : action.url
+        }        
        
         default :
         return prevstate
